@@ -10,6 +10,18 @@ struct List {
 
 int main()
 {
+    setlocale(LC_ALL, "ru");
+    int A[10], i;
+    List Verb[10] = {
+            "be",       "was",          "been",    "быть",         "beat",
+            "beat",     "beaten",       "бить",    "become",       "became",
+            "become",   "возврвщаться", "begin",   "began",        "begun",
+            "начинаиь", "bend",         "bent",    "bent",         "гнуть",
+            "bet",      "bet",          "bet",     "держать пари", "bite",
+            "bit",      "bitten ",      "кусать",  "blow",         "blew",
+            "blown",    "дуть",         "break",   "broke",        "broken",
+            "ломать",   "bring",        "brought", "brought",      "приносить"};
+
     system("pause");
     return 0;
 }
