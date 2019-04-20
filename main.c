@@ -16,9 +16,6 @@ struct list {
 int main()
 {
     char answer_I[20], answer_II[20], answer_III[20];
-    // for (i = 0; i < 10; i++) {
-    //  A[i] = i;
-    //}
 
     setlocale(LC_ALL, "Rus");
     struct list verb[100];
@@ -35,20 +32,20 @@ int main()
                verb[j].en1,
                verb[j].en2,
                verb[j].en3,
-               verb[j].rus);
+               verb[j].ru);
         j++;
     }
     fclose(pf);
-<<<<<<< HEAD
     int p = 0;
     int w = 0;
     int c[10];
-    for (i = 0; i < 10; i++) {
+    srand(time(NULL));
+    for (i = 0; i < 100; i++) {
         c[i] = i;
     }
-    for (i = 0; i < 10; i++) {
+    for (i = 0; i < 100; i++) {
         int tmp, a;
-        tmp = c[a = rand() % 9];
+        tmp = c[a = rand() % 99];
         c[a] = c[i];
         c[i] = tmp;
     }
