@@ -3,7 +3,7 @@ beat beat beaten бить
 become became become становиться
 begin began begun начинать
 bend bent bent гнуть
-bet bet bet пари
+bet bet bet держать_пари
 bite bit bitten кусать
 blow blew blown дуть
 break broke broken ломать
@@ -15,7 +15,7 @@ choose chose chosen выбирать
 come came come приходить
 cost cost cost стоить
 cut cut cut резать
-deal dealt dealt иметь.дело
+deal dealt dealt иметь_дело
 dig dug dug копать
 do did done делать
 draw drew drawn рисовать
@@ -43,9 +43,9 @@ hit hit hit ударять
 hold held held держать
 hurt hurt hurt ранить
 keep kept kept хранить
-know knew known знать
+know knew known знатьы
 lay laid laid класть
-lead led led вести за собой
+lead led led вести
 leave left left покидать
 lend lent lent одалживать
 let let let позволять
@@ -71,7 +71,7 @@ set set set устанавливать
 shake shook shaken трясти
 shine shone shone светить
 shoot shot shot стрелять
-show showed shown показывать
+show showed shown/showed показывать
 shut shut shut закрывать
 sing sang sung петь
 sink sank sunk тонуть
@@ -82,7 +82,7 @@ spend spent spent тратить
 stand stood stood стоять
 steal stole stolen воровать
 stick stuck stuck втыкать
-strike struck struck ударять
+strike struck struck/stricken ударять
 swear swore sworn клясться
 sweep swept swept подметать
 swim swam swum плавать
