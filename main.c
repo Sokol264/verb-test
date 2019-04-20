@@ -1,35 +1,45 @@
+
+#define _CRT_SECURE_NO_WARNINGS
 #include <locale.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
 
-struct List {
+struct list {
     char en1[30];
     char en2[30];
     char en3[30];
-    char Transl[50];
+    char ru[50];
 };
 
 int main()
 {
-    setlocale(LC_ALL, "ru");
-    int i;
-    struct List verb[10] = {{"be", "was", "been", "быть"},
-                            {"beat", "beat", "beaten", "бить"},
-                            {"become", "became", "become", "возврaщ."},
-                            {"begin", "began", "begun", "начинаиь"},
-                            {"bend", "bent", "bent", "гнуть"},
-                            {"bet", "bet", "bet", "держать пари"},
-                            {"bite", "bit", "bitten", "кусать"},
-                            {"blow", "blew", "blown", "дуть"},
-                            {"break", "broke", "broken", "ломать"},
-                            {"bring", "brought", "brought", "приносить"}};
-
     char answer_I[20], answer_II[20], answer_III[20];
     // for (i = 0; i < 10; i++) {
     //  A[i] = i;
     //}
+
+    setlocale(LC_ALL, "Rus");
+    struct list verb[100];
+    int i = 0, j = 0;
+    FILE* pf;
+    pf = fopen("verb.txt", "r");
+    if (pf == NULL) {
+        printf("error");
+        return 1;
+    }
+    while (!feof(pf)) {
+        fscanf(pf,
+               "%s%s%s%s",
+               verb[j].en1,
+               verb[j].en2,
+               verb[j].en3,
+               verb[j].rus);
+        j++;
+    }
+    fclose(pf);
+<<<<<<< HEAD
     int p = 0;
     int w = 0;
     int c[10];
@@ -63,5 +73,6 @@ int main()
            "ответов равно: %d\n\n",
            p,
            w);
+
     return 0;
 }
