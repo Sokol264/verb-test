@@ -5,17 +5,17 @@
 #include <time.h>
 
 struct List {
-    char I_form[20];
-    char II_form[20];
-    char III_form[20];
-    char Transl[30];
+    char en1[30];
+    char en2[30];
+    char en3[30];
+    char Transl[50];
 };
 
 int main()
 {
     setlocale(LC_ALL, "ru");
     int i;
-    struct List Verb[10] = {{"be", "was", "been", "быть"},
+    struct List verb[10] = {{"be", "was", "been", "быть"},
                             {"beat", "beat", "beaten", "бить"},
                             {"become", "became", "become", "возврaщ."},
                             {"begin", "began", "begun", "начинаиь"},
@@ -43,17 +43,17 @@ int main()
         c[i] = tmp;
     }
     for (i = 0; i < 10; i++) {
-        printf("%s\n", Verb[c[i]].Transl);
+        printf("%s\n", verb[c[i]].ru);
         scanf("%s %s %s", answer_I, answer_II, answer_III);
-        if (strcmp(Verb[c[i]].I_form, answer_I) == 0)
+        if (strcmp(verb[c[i]].en1, answer_I) == 0)
             p++;
         else
             w++;
-        if (strcmp(Verb[c[i]].II_form, answer_II) == 0)
+        if (strcmp(verb[c[i]].en2, answer_II) == 0)
             p++;
         else
             w++;
-        if (strcmp(Verb[c[i]].III_form, answer_III) == 0)
+        if (strcmp(verb[c[i]].en3, answer_III) == 0)
             p++;
         else
             w++;
