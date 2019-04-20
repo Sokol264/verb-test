@@ -39,6 +39,7 @@ int main()
         j++;
     }
     fclose(pf);
+<<<<<<< HEAD
     int p = 0;
     int w = 0;
     int c[10];
@@ -72,16 +73,6 @@ int main()
            "ответов равно: %d\n\n",
            p,
            w);
-    /*for (i = 0; i < j; i++) {
-        char answer[20];
-        printf("%s %10s %10s\n", verb[i].en1, verb[i].en2, verb[i].en3);
-        scanf("%s", answer);
-        if (!strcmp(answer, verb[i].rus)) {
-            printf("Answer Right\n");
-        } else
-            printf("Answer Wrong\n");
-    }
-    system("pause");*/
->>>>>>> Add reading ability
+
     return 0;
 }
