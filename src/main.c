@@ -22,7 +22,7 @@ int main()
     int p = 0;
     int w = 0;
     int n = 0;
-
+    char r;
     setlocale(LC_ALL, "Rus");
     FILE* pf;
     pf = fopen("verb.txt", "r");
