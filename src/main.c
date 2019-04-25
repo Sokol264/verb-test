@@ -20,6 +20,7 @@ int main()
     int j = 0;
     int p = 0;
     int w = 0;
+    int n = 0;
 
     setlocale(LC_ALL, "Rus");
     FILE* pf;
@@ -28,9 +29,15 @@ int main()
         printf("error");
         return 1;
     }
-
-    int A[100];
-    struct list verb[100];
+    while (!feof(pf)) {
+        r = getc(pf);
+        if (r == '\n') {
+            n++;
+        }
+    }
+    rewind(pf);
+    int A[n];
+    struct list verb[n];
     while (!feof(pf)) {
         fscanf(pf,
                "%s%s%s%s",
@@ -81,11 +88,11 @@ int main()
                 case '1':
 
                     srand(time(NULL));
-                    for (i = 0; i < 100; i++) {
+                    for (i = 0; i < n; i++) {
                         A[i] = i;
                     }
-                    for (i = 0; i < 100; i++) {
-                        int tmp, a = rand() % 99 - 1;
+                    for (i = 0; i < n; i++) {
+                        int tmp, a = rand() % n - 1;
                         tmp = A[i];
                         A[i] = A[a];
                         A[a] = tmp;
