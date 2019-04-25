@@ -1,5 +1,6 @@
 
 #define _CRT_SECURE_NO_WARNINGS
+#include "compare.h"
 #include "rec.h"
 #include <locale.h>
 #include <stdio.h>
@@ -93,6 +94,7 @@ int main()
                     }
                     for (i = 0; i < n; i++) {
                         int tmp, a = rand() % n - 1;
+
                         tmp = A[i];
                         A[i] = A[a];
                         A[a] = tmp;
@@ -100,21 +102,12 @@ int main()
                     for (i = 0; i < 10; i++) {
                         printf("\n%s\n", verb[A[i]].ru);
                         scanf("%s %s %s", answer_I, answer_II, answer_III);
-                        if (strcmp(verb[A[i]].en1, answer_I) == 0) {
-                            p++;
-                        } else {
-                            w++;
-                        }
-                        if (strcmp(verb[A[i]].en2, answer_II) == 0) {
-                            p++;
-                        } else {
-                            w++;
-                        }
-                        if (strcmp(verb[A[i]].en3, answer_III) == 0) {
-                            p++;
-                        } else {
-                            w++;
-                        }
+                        p += CompareR(verb[A[i]].en1, answer_I);
+                        w += CompareW(verb[A[i]].en1, answer_I);
+                        p += CompareR(verb[A[i]].en2, answer_II);
+                        w += CompareW(verb[A[i]].en2, answer_II);
+                        p += CompareR(verb[A[i]].en3, answer_III);
+                        w += CompareW(verb[A[i]].en3, answer_III);
                     }
                     recstat(login, p, w);
                     printf("Right answers - %d\n\nWrong answers - %d\n", p, w);
