@@ -1,5 +1,6 @@
 
 #define _CRT_SECURE_NO_WARNINGS
+#include "rec.h"
 #include <locale.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -108,6 +109,7 @@ int main()
                             w++;
                         }
                     }
+                    recstat(login, p, w);
                     printf("Right answers - %d\n\nWrong answers - %d\n", p, w);
                     ch = '0';
                     c = '2';
