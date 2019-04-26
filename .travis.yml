@@ -1,7 +1,0 @@
-language: c
-compiler: 
-  - gcc
-
-script: - git ls-files src/ | xargs clang-format -i && git diff --exit-code
- - make make test && bin/main-test
-
