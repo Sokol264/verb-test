@@ -101,6 +101,7 @@ int main()
                         A[a] = tmp;
                     }
                     for (i = 0; i < 10; i++) {
+                        printf("%d out of 10", i + 1);
                         printf("\n%s\n", verb[A[i]].ru);
                         scanf("%s %s %s", answer_I, answer_II, answer_III);
                         p += CompareR(verb[A[i]].en1, answer_I);
