@@ -8,7 +8,7 @@ all: bin/main
 
 -include build/*.d
 
-bin/main: build/main.o build/rec.o build/compare.o
+bin/main: build/main.o build/rec.o build/compare.o build/read.o
 	$(COMPILER) $(FLAGS)  -o $@ $^ 
 
 build/main.o: src/main.c
@@ -19,6 +19,10 @@ build/rec.o: src/rec.c
 
 build/compare.o: src/compare.c
 	$(COMPILER) $(FLAGS) -MMD -c -o $@ $<
+
+build/read.o: src/read.c	
+	$(COMPILER) $(FLAGS) -MMD -c -o $@ $<
+
 	
 clean:
 	rm build/*

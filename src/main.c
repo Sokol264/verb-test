@@ -1,6 +1,7 @@
 
 #define _CRT_SECURE_NO_WARNINGS
 #include "compare.h"
+#include "read.h"
 #include "rec.h"
 #include <locale.h>
 #include <stdio.h>
@@ -116,6 +117,8 @@ int main()
                     printf("\nTest has ended, returnig to the main menu");
                     break;
                 case '2':
+                    readstat(login);
+                    printf("Returning to main menu\n");
                     ch = '0';
                     c = '2';
                     break;
