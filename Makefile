@@ -5,6 +5,7 @@ FLAGS =  -Wall -Werror
 
 all: bin/main
 
+test: bin/main-test
 
 -include build/*.d
 
@@ -23,6 +24,19 @@ build/compare.o: src/compare.c
 build/read.o: src/read.c	
 	$(COMPILER) $(FLAGS) -MMD -c -o $@ $<
 
-	
+-include test/*.d
+
+bin/main-test: test/main-test.o test/compare.o test/test.o
+	$(COMPILER) $(FLAGS) -o $@ $^
+
+test/main-test.o: test/main-test.c
+	$(COMPILER) -I thirdparty -I src $(FLAGS) -MMD -c -o $@ $<
+
+test/test.o: test/test.c
+	$(COMPILER) -I thirdparty -I src $(FLAGS) -MMD -c -o $@ $<
+
+test/compare.o: src/compare.c
+	$(COMPILER) -I thirdparty -I src $(FLAGS) -MMD -c -o $@ $<
+
 clean:
 	rm build/*
