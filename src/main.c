@@ -88,7 +88,7 @@ int main()
             do {
                 switch (ch) {
                 case '1':
-
+                    p = 0, w = 0;
                     srand(time(NULL));
                     for (i = 0; i < n; i++) {
                         A[i] = i;
