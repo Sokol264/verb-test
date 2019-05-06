@@ -43,7 +43,7 @@ hit hit hit ударять
 hold held held держать
 hurt hurt hurt ранить
 keep kept kept хранить
-know knew known знатьы
+know knew known знать
 lay laid laid класть
 lead led led вести
 leave left left покидать
