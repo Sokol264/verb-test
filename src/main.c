@@ -102,7 +102,11 @@ int main()
                     }
                     for (i = 0; i < 10; i++) {
                         printf("%d out of 10", i + 1);
-                        printf("\n%s\n", verb[A[i]].ru);
+                        printf("\nHere is verb in Russian:  %s\nTranslate into "
+                               "English and input three forms of verb in "
+                               "order: "
+                               "1st, 2nd, 3rd\n",
+                               verb[A[i]].ru);
                         scanf("%s %s %s", answer_I, answer_II, answer_III);
                         p += CompareR(verb[A[i]].en1, answer_I);
                         w += CompareW(verb[A[i]].en1, answer_I);
