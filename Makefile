@@ -1,7 +1,7 @@
 COMPILER = gcc
 FLAGS =  -Wall -Werror
 
-.PHONY: clean all
+.PHONY: clean all clean-test
 
 all: bin/main
 
@@ -26,17 +26,21 @@ build/read.o: src/read.c
 
 -include test/*.d
 
-bin/main-test: test/main-test.o test/compare.o test/test.o
+bin/main-test: build-test/main-test.o build-test/compare.o build-test/test.o
 	$(COMPILER) $(FLAGS) -o $@ $^
 
-test/main-test.o: test/main-test.c
+build-test/main-test.o: test/main-test.c
 	$(COMPILER) -I thirdparty -I src $(FLAGS) -MMD -c -o $@ $<
 
-test/test.o: test/test.c
+build-test/test.o: test/test.c
 	$(COMPILER) -I thirdparty -I src $(FLAGS) -MMD -c -o $@ $<
 
-test/compare.o: src/compare.c
+build-test/compare.o: src/compare.c
 	$(COMPILER) -I thirdparty -I src $(FLAGS) -MMD -c -o $@ $<
 
 clean:
 	rm build/*
+
+clean-test:
+	rm build-test/*
+
