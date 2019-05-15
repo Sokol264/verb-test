@@ -7,7 +7,7 @@ int readstat(char login[])
 {
     FILE* log;
     int i = 0;
-    int record[2];
+    int record[3];
     log = fopen(strcat(login, ".profile"), "r");
     if (log == NULL) {
         printf("\nYou have complete no test\n\n");
@@ -18,9 +18,11 @@ int readstat(char login[])
         i++;
     }
     fclose(log);
-    printf("\n\n\n\nIn the previous test you had:\n\nRight aswers - "
+    printf("\n\n\n\nIn the previous test you had:\n\nMark - "
+           "%d\n\nRight aswers - "
            "%d\n\nWrong aswers - %d\n\n",
            record[0],
-           record[1]);
+           record[1],
+           record[2]);
     return 0;
 }
