@@ -116,19 +116,21 @@ int main()
                         w += CompareW(verb[A[i]].en3, answer_III);
                     }
                     recstat(login, p, w);
-                    if (p<=30 && p>26){
+                    if (p <= 30 && p > 26) {
                         printf("\nYour mark - 5 \n");
                     }
-                    if (p<=26 && p>21){
+                    if (p <= 26 && p > 21) {
                         printf("\nYour mark - 4 \n");
                     }
-                    if (p<=21 && p>14){
+                    if (p <= 21 && p > 14) {
                         printf("\nYour mark - 3 \n");
                     }
-                    if (p<=14 && p>=0){
+                    if (p <= 14 && p >= 0) {
                         printf("\nYour mark - 2 \n");
                     }
-                    printf("\nRight answers - %d\n\nWrong answers - %d\n", p, w);
+                    printf("\nRight answers - %d\n\nWrong answers - %d\n",
+                           p,
+                           w);
                     ch = '0';
                     c = '2';
                     printf("\nTest has ended, returnig to the main menu");
