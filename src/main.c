@@ -54,7 +54,8 @@ int main()
     fclose(pf);
     int i = 0;
     char login[20];
-    char c, ch;
+    char c, ch, q;
+
     do {
         printf("\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\tMENU\n\n\n1) Log in/Create "
                "profile\n\n\n0) Exit\n~~~~~~~~~~~~~~~~~~~~~~~~~~~");
@@ -68,89 +69,104 @@ int main()
                 }
             } while ((c != '1') && (c != '0'));
         }
-
         switch (c) {
         case '1':
             printf("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~\nEnter username:  ");
             scanf("%s", login);
-            printf("\n\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~\nWhat do you want to "
-                   "do?\n\n\n1) Start test\n\n2) View stats\n\n0) "
-                   "Go back\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~");
-            scanf("%c", &ch);
-            if (ch != '1' && ch != '2' && ch != '0') {
-                do {
+            while (1) {
+                q = '1';
+                switch (q) {
+                case '1':
+                    printf("\n\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~\nWhat do you want "
+                           "to "
+                           "do?\n\n\n1) Start test\n\n2) View stats\n\n0) "
+                           "Go back\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~");
                     scanf("%c", &ch);
                     if (ch != '1' && ch != '2' && ch != '0') {
-                        printf("\nWrong input, please try again\n\n");
+                        do {
+                            scanf("%c", &ch);
+                            if (ch != '1' && ch != '2' && ch != '0') {
+                                printf("\nWrong input, please try again\n\n");
+                            }
+                        } while (ch != '1' && ch != '2' && ch != '0');
                     }
-                } while (ch != '1' && ch != '2' && ch != '0');
-            }
-            do {
-                switch (ch) {
-                case '1':
-                    p = 0, w = 0;
-                    srand(time(NULL));
-                    for (i = 0; i < n; i++) {
-                        A[i] = i;
-                    }
-                    for (i = 0; i < n; i++) {
-                        int tmp, a = rand() % n - 1;
+                    do {
+                        switch (ch) {
+                        case '1':
+                            p = 0, w = 0;
+                            srand(time(NULL));
+                            for (i = 0; i < n; i++) {
+                                A[i] = i;
+                            }
+                            for (i = 0; i < n; i++) {
+                                int tmp, a = rand() % n - 1;
 
-                        tmp = A[i];
-                        A[i] = A[a];
-                        A[a] = tmp;
-                    }
-                    printf("\n\nHere you will be given given a verb in "
-                           "Russian. Translte it "
-                           "into English and write three forms the "
-                           "verb.\nComfirm input by pressing enter.\n\n");
-                    for (i = 0; i < 10; i++) {
-                        printf("%d out of 10", i + 1);
-                        printf("\nVerb in Russian: %s", verb[A[i]].ru);
-                        printf("\nInput 1st form:  ");
-                        scanf("%s", answer_I);
-                        printf("\nInput 2nd form:  ");
-                        scanf("%s", answer_II);
-                        printf("\nInput 3rd form:  ");
-                        scanf("%s", answer_III);
-                        p += CompareR(verb[A[i]].en1, answer_I);
-                        w += CompareW(verb[A[i]].en1, answer_I);
-                        p += CompareR(verb[A[i]].en2, answer_II);
-                        w += CompareW(verb[A[i]].en2, answer_II);
-                        p += CompareR(verb[A[i]].en3, answer_III);
-                        w += CompareW(verb[A[i]].en3, answer_III);
-                    }
-                    recstat(login, p, w);
-                    if (p <= 30 && p > 26) {
-                        printf("\nYour mark - 5 \n");
-                    }
-                    if (p <= 26 && p > 21) {
-                        printf("\nYour mark - 4 \n");
-                    }
-                    if (p <= 21 && p > 14) {
-                        printf("\nYour mark - 3 \n");
-                    }
-                    if (p <= 14 && p >= 0) {
-                        printf("\nYour mark - 2 \n");
-                    }
-                    printf("\nRight answers - %d\n\nWrong answers - %d\n",
-                           p,
-                           w);
-                    ch = '0';
-                    c = '2';
-                    printf("\nTest has ended, returnig to the main menu");
-                    break;
-                case '2':
-                    readstat(login);
-                    printf("Returning to main menu\n");
-                    ch = '0';
-                    c = '2';
-                    break;
+                                tmp = A[i];
+                                A[i] = A[a];
+                                A[a] = tmp;
+                            }
+                            printf("\n\nHere you will be given given a verb in "
+                                   "Russian. Translte it "
+                                   "into English and write three forms the "
+                                   "verb.\nComfirm input by pressing "
+                                   "enter.\n\n");
+                            for (i = 0; i < 10; i++) {
+                                printf("%d out of 10", i + 1);
+                                printf("\nVerb in Russian: %s", verb[A[i]].ru);
+                                printf("\nInput 1st form:  ");
+                                scanf("%s", answer_I);
+                                printf("\nInput 2nd form:  ");
+                                scanf("%s", answer_II);
+                                printf("\nInput 3rd form:  ");
+                                scanf("%s", answer_III);
+                                p += CompareR(verb[A[i]].en1, answer_I);
+                                w += CompareW(verb[A[i]].en1, answer_I);
+                                p += CompareR(verb[A[i]].en2, answer_II);
+                                w += CompareW(verb[A[i]].en2, answer_II);
+                                p += CompareR(verb[A[i]].en3, answer_III);
+                                w += CompareW(verb[A[i]].en3, answer_III);
+                            }
+                            recstat(login, p, w);
+                            if (p <= 30 && p > 26) {
+                                printf("\nYour mark - 5 \n");
+                            }
+                            if (p <= 26 && p > 21) {
+                                printf("\nYour mark - 4 \n");
+                            }
+                            if (p <= 21 && p > 14) {
+                                printf("\nYour mark - 3 \n");
+                            }
+                            if (p <= 14 && p >= 0) {
+                                printf("\nYour mark - 2 \n");
+                            }
+                            printf("\nRight answers - %d\n\nWrong answers - "
+                                   "%d\n",
+                                   p,
+                                   w);
+                            ch = '0';
+                            q = '1';
+                            printf("\nTest has ended, returnig to the main "
+                                   "menu");
+                            break;
+                        case '2':
+                            readstat(login);
+                            printf("Returning to main menu\n");
+                            ch = '0';
+                            q = '1';
+                            break;
+                        case '0':
+                            ch = '0';
+                            q = '0';
+                            break;
+                        }
+                    } while (ch != '0');
                 case '0':
-                    c = '2';
                     break;
                 }
-            } while (ch != '0');
+                if (q == '0') {
+                    break;
+                }
+            }
         case '0':
             break;
         }
