@@ -100,14 +100,19 @@ int main()
                         A[i] = A[a];
                         A[a] = tmp;
                     }
+                    printf("\n\nHere you will be given given a verb in "
+                           "Russian. Translte it "
+                           "into English and write three forms the "
+                           "verb.\nComfirm input by pressing enter.\n\n");
                     for (i = 0; i < 10; i++) {
                         printf("%d out of 10", i + 1);
-                        printf("\nHere is verb in Russian:  %s\nTranslate into "
-                               "English and input three forms of verb in "
-                               "order: "
-                               "1st, 2nd, 3rd\n",
-                               verb[A[i]].ru);
-                        scanf("%s %s %s", answer_I, answer_II, answer_III);
+                        printf("\nVerb in Russian: %s", verb[A[i]].ru);
+                        printf("\nInput 1st form:  ");
+                        scanf("%s", answer_I);
+                        printf("\nInput 2nd form:  ");
+                        scanf("%s", answer_II);
+                        printf("\nInput 3rd form:  ");
+                        scanf("%s", answer_III);
                         p += CompareR(verb[A[i]].en1, answer_I);
                         w += CompareW(verb[A[i]].en1, answer_I);
                         p += CompareR(verb[A[i]].en2, answer_II);
