@@ -16,6 +16,27 @@ struct list {
     char ru[50];
 };
 
+int Mark(float p, int k)
+{
+    float p1 = p;
+    float m;
+    m = (p1 / (k * 3)) * 100;
+    if (m <= 100 && m > 90) {
+        return 5;
+    }
+    if (m <= 90 && m >= 80) {
+        return 4;
+    }
+    if (m < 80 && m > 50) {
+        return 3;
+    }
+    if (m <= 50 && m >= 0) {
+        return 2;
+    } else {
+        return 0;
+    }
+}
+
 int main()
 {
     char answer_I[20], answer_II[20], answer_III[20];
@@ -151,18 +172,9 @@ int main()
                                 w += CompareW(verb[A[i]].en3, answer_III);
                             }
                             recstat(login, p, w);
-                            if (p <= 30 && p > 26) {
-                                printf("\nYour mark - 5 \n");
-                            }
-                            if (p <= 26 && p > 21) {
-                                printf("\nYour mark - 4 \n");
-                            }
-                            if (p <= 21 && p > 14) {
-                                printf("\nYour mark - 3 \n");
-                            }
-                            if (p <= 14 && p >= 0) {
-                                printf("\nYour mark - 2 \n");
-                            }
+                            int m = Mark(p, k);
+
+                            printf("\nYour mark is - %d", m);
                             printf("\nRight answers - %d\n\nWrong answers - "
                                    "%d\n",
                                    p,
