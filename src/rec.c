@@ -6,7 +6,9 @@
 int recstat(char* login, int p, int w)
 {
     FILE* rec;
-    rec = fopen(strcat(login, ".profile"), "w");
+    char log[20];
+    strcpy(log, login);
+    rec = fopen(strcat(log, ".profile"), "w");
     if (rec == NULL) {
         printf("Error while creating file\n\n");
         return 1;

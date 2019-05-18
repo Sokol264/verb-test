@@ -8,7 +8,9 @@ int readstat(char login[])
     FILE* log;
     int i = 0;
     int record[3];
-    log = fopen(strcat(login, ".profile"), "r");
+    char lg[20];
+    strcpy(lg, login);
+    log = fopen(strcat(lg, ".profile"), "r");
     if (log == NULL) {
         printf("\nYou have complete no test\n\n");
         return 1;
