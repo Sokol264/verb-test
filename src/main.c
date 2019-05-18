@@ -54,8 +54,8 @@ int main()
     fclose(pf);
     int i = 0;
     char login[20];
-    char c, ch, q;
-
+    char c, ch, q, d;
+    int k = 0;
     do {
         printf("\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\tMENU\n\n\n1) Log in/Create "
                "profile\n\n\n0) Exit\n~~~~~~~~~~~~~~~~~~~~~~~~~~~");
@@ -93,6 +93,30 @@ int main()
                     do {
                         switch (ch) {
                         case '1':
+                            printf("\nSelect difficulty "
+                                   "level:\n1)Ease\n2)Medium\n3)Hard\n");
+                            scanf("%c", &d);
+
+                            if (d != '1' && d != '2' && d != '3') {
+                                do {
+                                    scanf("%c", &d);
+                                    if (d != '1' && d != '2' && d != '3') {
+                                        printf("\nWrong input, please try "
+                                               "again\n\n");
+                                    }
+                                } while (d != '1' && d != '2' && d != '3');
+                            }
+                            switch (d) {
+                            case '1':
+                                k = 5;
+                                break;
+                            case '2':
+                                k = 7;
+                                break;
+                            case '3':
+                                k = 10;
+                                break;
+                            }
                             p = 0, w = 0;
                             srand(time(NULL));
                             for (i = 0; i < n; i++) {
@@ -110,8 +134,8 @@ int main()
                                    "into English and write three forms the "
                                    "verb.\nComfirm input by pressing "
                                    "enter.\n\n");
-                            for (i = 0; i < 10; i++) {
-                                printf("%d out of 10", i + 1);
+                            for (i = 0; i < k; i++) {
+                                printf("%d out of %d", i + 1, k);
                                 printf("\nVerb in Russian: %s", verb[A[i]].ru);
                                 printf("\nInput 1st form:  ");
                                 scanf("%s", answer_I);
