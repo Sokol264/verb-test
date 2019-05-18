@@ -1,6 +1,7 @@
 
 #define _CRT_SECURE_NO_WARNINGS
 #include "compare.h"
+#include "mark.h"
 #include "read.h"
 #include "rec.h"
 #include <locale.h>
@@ -15,27 +16,6 @@ struct list {
     char en3[30];
     char ru[50];
 };
-
-int Mark(float p, int k)
-{
-    float p1 = p;
-    float m;
-    m = (p1 / (k * 3)) * 100;
-    if (m <= 100 && m > 90) {
-        return 5;
-    }
-    if (m <= 90 && m >= 80) {
-        return 4;
-    }
-    if (m < 80 && m > 50) {
-        return 3;
-    }
-    if (m <= 50 && m >= 0) {
-        return 2;
-    } else {
-        return 0;
-    }
-}
 
 int main()
 {
@@ -81,7 +61,6 @@ int main()
         printf("\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\tMENU\n\n\n1) Log in/Create "
                "profile\n\n\n0) Exit\n~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         scanf("%c", &c);
-        printf("%c", c);
         if (c != '1' && c != '0') {
             do {
                 scanf("%c", &c);
@@ -94,10 +73,12 @@ int main()
         case '1':
             printf("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~\nEnter username:  ");
             scanf("%s", login);
+
             while (1) {
                 q = '1';
                 switch (q) {
                 case '1':
+
                     printf("\n\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~\nWhat do you want "
                            "to "
                            "do?\n\n\n1) Start test\n\n2) View stats\n\n0) "
@@ -114,10 +95,7 @@ int main()
                     do {
                         switch (ch) {
                         case '1':
-                            printf("\nSelect difficulty "
-                                   "level:\n1)Ease\n2)Medium\n3)Hard\n");
                             scanf("%c", &d);
-
                             if (d != '1' && d != '2' && d != '3') {
                                 do {
                                     scanf("%c", &d);
@@ -150,7 +128,8 @@ int main()
                                 A[i] = A[a];
                                 A[a] = tmp;
                             }
-                            printf("\n\nHere you will be given given a verb in "
+                            printf("\n\nHere you will be given given a "
+                                   "verb in "
                                    "Russian. Translte it "
                                    "into English and write three forms the "
                                    "verb.\nComfirm input by pressing "
@@ -171,11 +150,13 @@ int main()
                                 p += CompareR(verb[A[i]].en3, answer_III);
                                 w += CompareW(verb[A[i]].en3, answer_III);
                             }
-                            recstat(login, p, w);
+                            recstat(login, p, w, k);
+
                             int m = Mark(p, k);
 
                             printf("\nYour mark is - %d", m);
-                            printf("\nRight answers - %d\n\nWrong answers - "
+                            printf("\nRight answers - %d\n\nWrong answers "
+                                   "- "
                                    "%d\n",
                                    p,
                                    w);
@@ -206,7 +187,6 @@ int main()
         case '0':
             break;
         }
-
     } while (c != '0');
     return 0;
 }
