@@ -31,7 +31,7 @@ build/mark.o: src/mark.c
 
 -include test/*.d
 
-bin/main-test: build-test/main-test.o build-test/compare.o build-test/test.o
+bin/main-test: build-test/main-test.o build-test/compare.o build-test/mark.o build-test/test.o
 	$(COMPILER) $(FLAGS) -o $@ $^
 
 build-test/main-test.o: test/main-test.c
@@ -41,6 +41,9 @@ build-test/test.o: test/test.c
 	$(COMPILER) -I thirdparty -I src $(FLAGS) -MMD -c -o $@ $<
 
 build-test/compare.o: src/compare.c
+	$(COMPILER) -I thirdparty -I src $(FLAGS) -MMD -c -o $@ $<
+
+build-test/mark.o: src/mark.c
 	$(COMPILER) -I thirdparty -I src $(FLAGS) -MMD -c -o $@ $<
 
 clean:
