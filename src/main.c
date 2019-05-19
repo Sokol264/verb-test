@@ -95,6 +95,9 @@ int main()
                     do {
                         switch (ch) {
                         case '1':
+                            printf("\nChoose difficulty "
+                                   "level:\n\n1)Easy\n\n2)Normal\n\n3)"
+                                   "Hard\n\n");
                             scanf("%c", &d);
                             if (d != '1' && d != '2' && d != '3') {
                                 do {
