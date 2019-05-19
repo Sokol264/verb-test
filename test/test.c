@@ -51,3 +51,43 @@ CTEST(mark, below_0)
 {
     ASSERT_EQUAL(0, Mark(-50, 50));
 }
+
+CTEST(mark_easy, 5_max)
+{
+    ASSERT_EQUAL(5, Mark(15, 5));
+}
+
+CTEST(mark_easy, 5_min)
+{
+    ASSERT_EQUAL(5, Mark(14, 5));
+}
+
+CTEST(mark_easy, 4_max)
+{
+    ASSERT_EQUAL(4, Mark(13, 5));
+}
+
+CTEST(mark_easy, 4_min)
+{
+    ASSERT_EQUAL(4, Mark(12, 5));
+}
+
+CTEST(mark_easy, 3_max)
+{
+    ASSERT_EQUAL(3, Mark(11, 5));
+}
+
+CTEST(mark_easy, 3_min)
+{
+    ASSERT_EQUAL(3, Mark(8, 5));
+}
+
+CTEST(mark_easy, 2_max)
+{
+    ASSERT_EQUAL(2, Mark(7, 5));
+}
+
+CTEST(mark_easy, 2_min)
+{
+    ASSERT_EQUAL(2, Mark(0, 5));
+}
