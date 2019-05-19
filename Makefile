@@ -9,7 +9,7 @@ test: bin/main-test
 
 -include build/*.d
 
-bin/main: build/main.o build/rec.o build/compare.o build/read.o
+bin/main: build/main.o build/rec.o build/compare.o build/read.o build/mark.o
 	$(COMPILER) $(FLAGS)  -o $@ $^ 
 
 build/main.o: src/main.c
@@ -23,6 +23,11 @@ build/compare.o: src/compare.c
 
 build/read.o: src/read.c	
 	$(COMPILER) $(FLAGS) -MMD -c -o $@ $<
+
+build/mark.o: src/mark.c	
+	$(COMPILER) $(FLAGS) -MMD -c -o $@ $<
+
+
 
 -include test/*.d
 
