@@ -1,5 +1,6 @@
 #include "compare.h"
 #include "ctest.h"
+#include "mark.h"
 
 CTEST(comparison_right, no_register_p)
 {
@@ -39,4 +40,14 @@ CTEST(comparison_wrong, register_p)
 CTEST(comparison_wrong, register_m)
 {
     ASSERT_EQUAL(1, CompareW("Swim", "swim"));
+}
+
+CTEST(mark, over_100)
+{
+    ASSERT_EQUAL(0, Mark(100, 30));
+}
+
+CTEST(mark, below_0)
+{
+    ASSERT_EQUAL(0, Mark(-50, 50));
 }
