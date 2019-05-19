@@ -130,3 +130,42 @@ CTEST(mark_normal, 2_min)
 {
     ASSERT_EQUAL(2, Mark(0, 7));
 }
+CTEST(mark_hard, 5_max)
+{
+    ASSERT_EQUAL(5, Mark(30, 10));
+}
+
+CTEST(mark_hard, 5_min)
+{
+    ASSERT_EQUAL(5, Mark(27, 10));
+}
+
+CTEST(mark_hard, 4_max)
+{
+    ASSERT_EQUAL(4, Mark(26, 10));
+}
+
+CTEST(mark_hard, 4_min)
+{
+    ASSERT_EQUAL(4, Mark(24, 10));
+}
+
+CTEST(mark_hard, 3_max)
+{
+    ASSERT_EQUAL(3, Mark(23, 10));
+}
+
+CTEST(mark_hard, 3_min)
+{
+    ASSERT_EQUAL(3, Mark(15, 10));
+}
+
+CTEST(mark_hard, 2_max)
+{
+    ASSERT_EQUAL(2, Mark(14, 10));
+}
+
+CTEST(mark_hard, 2_min)
+{
+    ASSERT_EQUAL(2, Mark(0, 10));
+}
