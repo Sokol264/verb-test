@@ -24,6 +24,7 @@ int main()
     int p = 0;
     int w = 0;
     int n = 0;
+    int f = 0;
     char r;
     setlocale(LC_ALL, "Rus");
     FILE* pf;
@@ -78,7 +79,6 @@ int main()
                 q = '1';
                 switch (q) {
                 case '1':
-
                     printf("\n\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~\nWhat do you want "
                            "to "
                            "do?\n\n\n1) Start test\n\n2) View stats\n\n0) "
@@ -136,22 +136,55 @@ int main()
                                    "Russian. Translte it "
                                    "into English and write three forms the "
                                    "verb.\nComfirm input by pressing "
-                                   "enter.\n\n");
+                                   "enter. If you want to exit input '0'\n\n");
                             for (i = 0; i < k; i++) {
-                                printf("%d out of %d", i + 1, k);
-                                printf("\nVerb in Russian: %s", verb[A[i]].ru);
-                                printf("\nInput 1st form:  ");
-                                scanf("%s", answer_I);
-                                printf("\nInput 2nd form:  ");
-                                scanf("%s", answer_II);
-                                printf("\nInput 3rd form:  ");
-                                scanf("%s", answer_III);
-                                p += CompareR(verb[A[i]].en1, answer_I);
-                                w += CompareW(verb[A[i]].en1, answer_I);
-                                p += CompareR(verb[A[i]].en2, answer_II);
-                                w += CompareW(verb[A[i]].en2, answer_II);
-                                p += CompareR(verb[A[i]].en3, answer_III);
-                                w += CompareW(verb[A[i]].en3, answer_III);
+                                while (!f) {
+                                    printf("%d out of %d", i + 1, k);
+                                    printf("\nVerb in Russian: %s",
+                                           verb[A[i]].ru);
+                                    printf("\nInput 1st form:  ");
+                                    scanf("%s", answer_I);
+                                    if (answer_I[0] == '0') {
+                                        f = 1;
+                                        q = '1';
+                                        ch = '0';
+                                        continue;
+                                    } else {
+                                        p += CompareR(verb[A[i]].en1, answer_I);
+                                        w += CompareW(verb[A[i]].en1, answer_I);
+                                    }
+
+                                    printf("\nInput 2nd form:  ");
+                                    scanf("%s", answer_II);
+                                    if (answer_II[0] == '0') {
+                                        f = 1;
+                                        q = '1';
+                                        ch = '0';
+                                        continue;
+                                    } else {
+                                        p += CompareR(
+                                                verb[A[i]].en2, answer_II);
+                                        w += CompareW(
+                                                verb[A[i]].en2, answer_II);
+                                    }
+                                    printf("\nInput 3rd form:  ");
+                                    scanf("%s", answer_III);
+                                    if (answer_III[0] == '0') {
+                                        f = 1;
+                                        q = '1';
+                                        ch = '0';
+                                        continue;
+                                    } else {
+                                        p += CompareR(
+                                                verb[A[i]].en3, answer_III);
+                                        w += CompareW(
+                                                verb[A[i]].en3, answer_III);
+                                    }
+                                }
+                            }
+                            if (f) {
+                                printf("\n Returning to menu\n\n");
+                                continue;
                             }
                             recstat(login, p, w, k);
 
