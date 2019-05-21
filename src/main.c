@@ -137,8 +137,8 @@ int main()
                                    "into English and write three forms the "
                                    "verb.\nComfirm input by pressing "
                                    "enter. If you want to exit input '0'\n\n");
-                            for (i = 0; i < k; i++) {
-                                while (!f) {
+                            while (!f) {
+                                for (i = 0; i < k; i++) {
                                     printf("%d out of %d", i + 1, k);
                                     printf("\nVerb in Russian: %s",
                                            verb[A[i]].ru);
@@ -148,7 +148,7 @@ int main()
                                         f = 1;
                                         q = '1';
                                         ch = '0';
-                                        continue;
+                                        break;
                                     } else {
                                         p += CompareR(verb[A[i]].en1, answer_I);
                                         w += CompareW(verb[A[i]].en1, answer_I);
@@ -160,7 +160,7 @@ int main()
                                         f = 1;
                                         q = '1';
                                         ch = '0';
-                                        continue;
+                                        break;
                                     } else {
                                         p += CompareR(
                                                 verb[A[i]].en2, answer_II);
@@ -173,19 +173,21 @@ int main()
                                         f = 1;
                                         q = '1';
                                         ch = '0';
-                                        continue;
+                                        break;
                                     } else {
                                         p += CompareR(
                                                 verb[A[i]].en3, answer_III);
                                         w += CompareW(
                                                 verb[A[i]].en3, answer_III);
+                                        if (i == k - 1) {
+                                            f = 1;
+                                            q = '1';
+                                            break;
+                                        }
                                     }
                                 }
                             }
-                            if (f) {
-                                printf("\n Returning to menu\n\n");
-                                continue;
-                            }
+
                             recstat(login, p, w, k);
 
                             int m = Mark(p, k);
@@ -200,6 +202,7 @@ int main()
                             q = '1';
                             printf("\nTest has ended, returnig to the main "
                                    "menu");
+                            f = 0;
                             break;
                         case '2':
                             readstat(login);
