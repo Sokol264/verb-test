@@ -1,7 +1,7 @@
 COMPILER = gcc
 FLAGS =  -Wall -Werror
 
-.PHONY: clean all clean-test
+.PHONY: clean all clean-test clean-profile
 
 all: bin/main
 
@@ -51,4 +51,7 @@ clean:
 
 clean-test:
 	rm build-test/*
+
+clean-profile:
+	rm *.profile
 
