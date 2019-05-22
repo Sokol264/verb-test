@@ -97,7 +97,7 @@ int main()
                         case '1':
                             printf("\nChoose difficulty "
                                    "level:\n\n1)Easy\n\n2)Normal\n\n3)"
-                                   "Hard\n\n");
+                                   "Hard\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~");
                             scanf("%c", &d);
                             if (d != '1' && d != '2' && d != '3') {
                                 do {
@@ -131,18 +131,20 @@ int main()
                                 A[i] = A[a];
                                 A[a] = tmp;
                             }
-                            printf("\n\nHere you will be given given a "
+                            printf("\n\nHere you will be given a "
                                    "verb in "
                                    "Russian. Translte it "
                                    "into English and write three forms the "
                                    "verb.\nComfirm input by pressing "
-                                   "enter. If you want to exit input '0'\n\n");
+                                   "enter. If you want to exit input '0'\n");
                             while (!f) {
                                 for (i = 0; i < k; i++) {
-                                    printf("%d out of %d", i + 1, k);
+                                    printf("\n\n~~~~~\n\n%d out of %d\n",
+                                           i + 1,
+                                           k);
                                     printf("\nVerb in Russian: %s",
                                            verb[A[i]].ru);
-                                    printf("\nInput 1st form:  ");
+                                    printf("\n\nInput 1st form:  ");
                                     scanf("%s", answer_I);
                                     if (answer_I[0] == '0') {
                                         f = 1;
@@ -154,7 +156,7 @@ int main()
                                         w += CompareW(verb[A[i]].en1, answer_I);
                                     }
 
-                                    printf("\nInput 2nd form:  ");
+                                    printf("\n\nInput 2nd form:  ");
                                     scanf("%s", answer_II);
                                     if (answer_II[0] == '0') {
                                         f = 1;
@@ -167,7 +169,7 @@ int main()
                                         w += CompareW(
                                                 verb[A[i]].en2, answer_II);
                                     }
-                                    printf("\nInput 3rd form:  ");
+                                    printf("\n\nInput 3rd form:  ");
                                     scanf("%s", answer_III);
                                     if (answer_III[0] == '0') {
                                         f = 1;
@@ -192,7 +194,7 @@ int main()
 
                             int m = Mark(p, k);
 
-                            printf("\nYour mark is - %d", m);
+                            printf("\nYour mark is - %d\n", m);
                             printf("\nRight answers - %d\n\nWrong answers "
                                    "- "
                                    "%d\n",
@@ -206,7 +208,11 @@ int main()
                             break;
                         case '2':
                             readstat(login);
-                            printf("Returning to main menu\n");
+                            printf("\n\nPress any button when you are ready to "
+                                   "continue...\n\n");
+                            getchar();
+                            getchar();
+                            printf("Returning to menu\n");
                             ch = '0';
                             q = '1';
                             break;
