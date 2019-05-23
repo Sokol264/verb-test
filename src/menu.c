@@ -12,7 +12,6 @@
 #include <string.h>
 #include <time.h>
 
-
 struct list {
     char en1[30];
     char en2[30];
@@ -26,6 +25,7 @@ void main_menu(int n)
     int j = 0;
     int p = 0;
     int f = 0;
+    int rec;
     int w = 0;
     FILE* pf;
     pf = fopen("verb.txt", "r");
@@ -139,6 +139,7 @@ void main_menu(int n)
                                         f = 1;
                                         q = '1';
                                         ch = '0';
+                                        rec = 0;
                                         break;
                                     } else {
                                         p += CompareR(verb[A[i]].en1, answer_I);
@@ -151,6 +152,7 @@ void main_menu(int n)
                                         f = 1;
                                         q = '1';
                                         ch = '0';
+                                        rec = 0;
                                         break;
                                     } else {
                                         p += CompareR(
@@ -164,6 +166,7 @@ void main_menu(int n)
                                         f = 1;
                                         q = '1';
                                         ch = '0';
+                                        rec = 0;
                                         break;
                                     } else {
                                         p += CompareR(
@@ -173,31 +176,38 @@ void main_menu(int n)
                                         if (i == k - 1) {
                                             f = 1;
                                             q = '1';
+                                            rec = 1;
                                             break;
                                         }
                                     }
                                 }
                             }
+                            if (rec == 1) {
+                                recstat(login, p, w, k);
 
-                            recstat(login, p, w, k);
+                                int m = Mark(p, k);
 
-                            int m = Mark(p, k);
-
-                            printf("\nYour mark is - %d\n", m);
-                            printf("\nRight answers - %d\n\nWrong answers "
-                                   "- "
-                                   "%d\n",
-                                   p,
-                                   w);
-                            ch = '0';
-                            q = '1';
+                                printf("\n\n~~~~~\nYour mark is - %d\n", m);
+                                printf("\nRight answers - %d\n\nWrong answers "
+                                       "- "
+                                       "%d\n",
+                                       p,
+                                       w);
+                                ch = '0';
+                                q = '1';
+                            }
+                            printf("\n\n~~~~~\n\nPress \"Enter\" when you are "
+                                   "ready to "
+                                   "continue...\n\n");
+                            getchar();
+                            getchar();
                             printf("\nTest has ended, returnig to the main "
                                    "menu");
                             f = 0;
                             break;
                         case '2':
                             readstat(login);
-                            printf("\n\nPress any button when you are ready to "
+                            printf("\n\nPress \"Enter\" when you are ready to "
                                    "continue...\n\n");
                             getchar();
                             getchar();

@@ -1,8 +1,8 @@
 
 #define _CRT_SECURE_NO_WARNINGS
 #include "compare.h"
-#include "menu.h"
 #include "mark.h"
+#include "menu.h"
 #include "read.h"
 #include "rec.h"
 #include <locale.h>
@@ -10,7 +10,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-
 
 int main()
 {

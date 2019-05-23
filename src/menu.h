@@ -2,10 +2,10 @@
 #define MENU_H
 
 #include "compare.h"
+#include "locale.h"
 #include "mark.h"
 #include "read.h"
 #include "rec.h"
-#include "locale.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
