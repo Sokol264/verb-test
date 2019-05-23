@@ -23,6 +23,7 @@ void main_menu(int n)
 {
     char answer_I[20], answer_II[20], answer_III[20];
     int j = 0;
+    char log[20];
     int p = 0;
     int f = 0;
     int rec;
@@ -70,16 +71,19 @@ void main_menu(int n)
                 case '1':
                     printf("\n\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~\nWhat do you want "
                            "to "
-                           "do?\n\n\n1) Start test\n\n2) View stats\n\n0) "
+                           "do?\n\n\n1) Start test\n\n2) View stats\n\n3) "
+                           "Delete stats\n\n0) "
                            "Go back\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~");
                     scanf("%c", &ch);
-                    if (ch != '1' && ch != '2' && ch != '0') {
+                    if (ch != '1' && ch != '2' && ch != '0' && ch != '3') {
                         do {
                             scanf("%c", &ch);
-                            if (ch != '1' && ch != '2' && ch != '0') {
+                            if (ch != '1' && ch != '2' && ch != '0'
+                                && ch != '3') {
                                 printf("\nWrong input, please try again\n\n");
                             }
-                        } while (ch != '1' && ch != '2' && ch != '0');
+                        } while (ch != '1' && ch != '2' && ch != '3'
+                                 && ch != '0');
                     }
                     do {
                         switch (ch) {
@@ -212,6 +216,13 @@ void main_menu(int n)
                             getchar();
                             getchar();
                             printf("Returning to menu\n");
+                            ch = '0';
+                            q = '1';
+                            break;
+                        case '3':
+                            strcpy(log, login);
+                            remove(strcat(log, ".profile"));
+                            printf("\n\nStats were deleted\n\n");
                             ch = '0';
                             q = '1';
                             break;
