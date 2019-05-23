@@ -90,16 +90,19 @@ void main_menu(int n)
                         case '1':
                             printf("\nChoose difficulty "
                                    "level:\n\n1)Easy\n\n2)Normal\n\n3)"
-                                   "Hard\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                                   "Hard\n\n0)Go "
+                                   "back\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~");
                             scanf("%c", &d);
-                            if (d != '1' && d != '2' && d != '3') {
+                            if (d != '1' && d != '2' && d != '3' && d != '0') {
                                 do {
                                     scanf("%c", &d);
-                                    if (d != '1' && d != '2' && d != '3') {
+                                    if (d != '1' && d != '2' && d != '3'
+                                        && d != '0') {
                                         printf("\nWrong input, please try "
                                                "again\n\n");
                                     }
-                                } while (d != '1' && d != '2' && d != '3');
+                                } while (d != '1' && d != '2' && d != '3'
+                                         && d != '0');
                             }
                             switch (d) {
                             case '1':
@@ -111,6 +114,10 @@ void main_menu(int n)
                             case '3':
                                 k = 10;
                                 break;
+                            case '0':
+                                ch = '0';
+                                q = '1';
+                                f = 1;
                             }
                             p = 0, w = 0;
                             srand(time(NULL));
@@ -124,12 +131,15 @@ void main_menu(int n)
                                 A[i] = A[a];
                                 A[a] = tmp;
                             }
-                            printf("\n\nHere you will be given a "
-                                   "verb in "
-                                   "Russian. Translte it "
-                                   "into English and write three forms the "
-                                   "verb.\nComfirm input by pressing "
-                                   "enter. If you want to exit input '0'\n");
+                            if (d != '0') {
+                                printf("\n\nHere you will be given a "
+                                       "verb in "
+                                       "Russian. Translte it "
+                                       "into English and write three forms the "
+                                       "verb.\nComfirm input by pressing "
+                                       "enter. If you want to exit input "
+                                       "'0'\n");
+                            }
                             while (!f) {
                                 for (i = 0; i < k; i++) {
                                     printf("\n\n~~~~~\n\n%d out of %d\n",
