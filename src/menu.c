@@ -125,7 +125,7 @@ void main_menu(int n)
                                 A[i] = i;
                             }
                             for (i = 0; i < n; i++) {
-                                int tmp, a = rand() % n - 1;
+                                int tmp, a = rand() % n;
 
                                 tmp = A[i];
                                 A[i] = A[a];
