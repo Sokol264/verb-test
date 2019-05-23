@@ -12,7 +12,6 @@
 #include <string.h>
 #include <time.h>
 
-
 struct list {
     char en1[30];
     char en2[30];
@@ -70,7 +69,8 @@ void main_menu(int n)
                 case '1':
                     printf("\n\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~\nWhat do you want "
                            "to "
-                           "do?\n\n\n1) Start test\n\n2) View stats\n\n0) "
+                           "do?\n\n\n1) Start test\n\n2) View stats\n\n3) "
+                           "Delete profile\n\n0) "
                            "Go back\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~");
                     scanf("%c", &ch);
                     if (ch != '1' && ch != '2' && ch != '0') {
@@ -79,7 +79,8 @@ void main_menu(int n)
                             if (ch != '1' && ch != '2' && ch != '0') {
                                 printf("\nWrong input, please try again\n\n");
                             }
-                        } while (ch != '1' && ch != '2' && ch != '0');
+                        } while (ch != '1' && ch != '2' && ch != '3'
+                                 && ch != '0');
                     }
                     do {
                         switch (ch) {
@@ -202,6 +203,11 @@ void main_menu(int n)
                             getchar();
                             getchar();
                             printf("Returning to menu\n");
+                            ch = '0';
+                            q = '1';
+                            break;
+                        case '3':
+                            remove(strcat(login, ".profile"));
                             ch = '0';
                             q = '1';
                             break;
